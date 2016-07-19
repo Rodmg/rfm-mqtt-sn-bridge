@@ -19,6 +19,7 @@ class SerialEndpointClass
 {
 private:
   Slip slip;
+  bool pairMode;
   uint8_t buffer[SERIAL_BUFF_SIZE];
 public:
   SerialEndpointClass();
@@ -27,6 +28,11 @@ public:
   void send(uint16_t address, uint8_t *message, uint8_t len, uint8_t lqi, uint8_t rssi);
   void sendAck();
   void sendNack();
+
+  void enterPairMode();
+  void enterNormalMode();
+  void sendPair(uint16_t address, uint8_t *message, uint8_t len, uint8_t lqi, uint8_t rssi);
+
 };
 
 extern SerialEndpointClass SerialEndpoint;
