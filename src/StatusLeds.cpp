@@ -2,16 +2,16 @@
 
 void offLeds()
 {
-  digitalWrite(LED_GREEN, 1);
-  digitalWrite(LED_RED, 1);
+  digitalWrite(LED_GREEN, 0);
+  digitalWrite(LED_RED, 0);
 }
 
 void StatusLedsClass::begin()
 {
   pinMode(LED_GREEN, OUTPUT);
   pinMode(LED_RED, OUTPUT);
-  digitalWrite(LED_GREEN, 1);
-  digitalWrite(LED_RED, 1);
+  digitalWrite(LED_GREEN, 0);
+  digitalWrite(LED_RED, 0);
   // Turn off status leds
   timer.setInterval(500, offLeds);
 }
