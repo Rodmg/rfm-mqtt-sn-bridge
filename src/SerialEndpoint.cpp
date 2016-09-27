@@ -119,7 +119,7 @@ SerialEndpointClass::SerialEndpointClass()
 void SerialEndpointClass::enterPairMode()
 {
   pairMode = true;
-  driver.setHeaderPan(0);
+  driver.setHeaderPan(0x00);
   driver.setEncryptionKey(NULL);
   self->sendAck();
 }
