@@ -3,17 +3,19 @@
 
 #include <Arduino.h>
 #include <RHReliableDatagram.h>
-#include <RH_RF69.h>
+#include <RH_RF69_PAN.h>
 #include <SPI.h>
 #include "StatusLeds.h"
 #include "Slip.h"
 #include "CRC.h"
+#include "Storage.h"
 
 #define SERIAL_BUFF_SIZE RH_RF69_MAX_MESSAGE_LEN
 #define LEN_INDEX 0
 #define PLLEN_INDEX 5
 
 #define HUB 0xF0
+#define DEFAULT_PAN 0x01
 
 class SerialEndpointClass
 {
@@ -32,6 +34,9 @@ public:
   void enterPairMode();
   void enterNormalMode();
   void sendPair(uint16_t address, uint8_t *message, uint8_t len, uint8_t lqi, uint8_t rssi);
+
+  void loadPreferences();
+  void sendConfigReq();
 
 };
 

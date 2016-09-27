@@ -29,19 +29,25 @@
 */
 
 #include <RHReliableDatagram.h>
-#include <RH_RF69.h>
+#include <RH_RF69_PAN.h>
 #include <SPI.h>
 #include "SerialEndpoint.h"
 #include "StatusLeds.h"
+#include <avr/wdt.h>
 
 void yield()
 {
+  wdt_reset();
   StatusLeds.loop();
   SerialEndpoint.loop();
 }
 
 void setup()
 {
+  // Watchdog timer setup
+  wdt_disable();
+  wdt_reset();
+  wdt_enable(WDTO_1S);
   // Activity indicator led
   StatusLeds.begin();
   SerialEndpoint.begin();
