@@ -140,6 +140,7 @@ void SerialEndpointClass::begin()
   driver.setFrequency(915.0);
   driver.setModemConfig(RH_RF69_PAN::GFSK_Rb57_6Fd120);
   loadPreferences();
+  sendAck();  // Send ack for flushing any pending messages sent from the gateway before we were ready
   sendConfigReq(); // Request PAN and Key config to Gateway
 }
 
