@@ -6,8 +6,6 @@ MQTT-SN Bridge firmware for RFM69 rf module (915Mhz) and ATmega328p based boards
 
 For compiling and uploading this code to the board you need the PlatformIO tools and the [PlatformIO IDE](http://platformio.org/get-started).
 
-You also need to install the **RadioHead library** from the PlatformIO library manager.
-
 ## Using
 
 Open the project folder from the Atom IDE with PlatformIO IDE plugin installed, connect your board and press the upload button.
